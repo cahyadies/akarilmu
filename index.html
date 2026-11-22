@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kenali akarnya, lihat cabangnya. Peta referensi keilmuan bergaya buku sketsa untuk pelajar SMA/K atau sederajat: lihat bagaimana ilmu dasar membuka jalur ke 60+ program studi di Indonesia."
+    />
+    <meta property="og:title" content="AkarIlmu: Kenali akarnya, lihat cabangnya" />
+    <meta
+      property="og:description"
+      content="Peta referensi keilmuan untuk pelajar SMA/K atau sederajat: telusuri hubungan 10 ilmu dasar ke 60+ program studi di Indonesia, cek kombinasi pelajaran, dan hitung keketatan masuk PTN/PTS."
+    />
+    <meta property="og:type" content="website" />
+    <title>AkarIlmu: Kenali akarnya, lihat cabangnya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('akarilmu-theme');
+          if (saved === 'dark' || saved === 'light') {
+            document.documentElement.setAttribute('data-theme', saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

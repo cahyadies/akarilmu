@@ -1,0 +1,13 @@
+# Dependencies and build output
+node_modules/
+dist/
+
+# Environment and Vercel local links
+.vercel
+.env
+.env.*
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+*.log
