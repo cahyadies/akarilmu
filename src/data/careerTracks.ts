@@ -118,7 +118,7 @@ export const CAREER_TRACKS: CareerTrack[] = [
       'Menerjemahkan kebutuhan pengguna dan target bisnis menjadi rancangan fitur aplikasi, mengatur prioritas tim teknik-desain, serta membenahi alur sistem perusahaan.',
     realityNote:
       'Jalur lintas bidang yang menuntut komunikasi jernih, empati pada pengguna, dan pemahaman dasar cara kerja perangkat lunak maupun bisnis.',
-    primaryMajors: ['sistem-informasi', 'teknik-industri'],
+    primaryMajors: ['sistem-informasi', 'teknik-industri', 'bisnis-digital'],
     alternativeMajors: ['manajemen-bisnis', 'desain-interaksi', 'ilmu-komputer'],
     keyRoots: ['logika', 'ekonomi', 'sosiologi'],
     searchKeywords: ['product manager', 'pm', 'system analyst', 'business analyst', 'erp', 'startup']
@@ -170,8 +170,8 @@ export const CAREER_TRACKS: CareerTrack[] = [
       'Mengatur alur bahan baku, penjadwalan produksi pabrik, logistik distribusi gudang, pengendalian kualitas produk, serta efisiensi biaya operasional.',
     realityNote:
       'Sangat dibutuhkan di hampir semua industri mulai dari pabrik otomotif, makanan-minuman, ritel modern, hingga e-commerce.',
-    primaryMajors: ['teknik-industri', 'agribisnis'],
-    alternativeMajors: ['manajemen-bisnis', 'teknik-mesin', 'aktuaria'],
+    primaryMajors: ['teknik-industri', 'bisnis-internasional-logistik', 'agribisnis'],
+    alternativeMajors: ['manajemen-bisnis', 'administrasi-bisnis', 'teknik-mesin'],
     keyRoots: ['matematika', 'ekonomi', 'fisika'],
     searchKeywords: ['supply chain', 'logistik', 'operasi', 'ppic', 'qa', 'pabrik']
   },
@@ -248,7 +248,7 @@ export const CAREER_TRACKS: CareerTrack[] = [
       'Memeriksa laporan keuangan dan pajak perusahaan, menghitung cadangan risiko asuransi, menilai kelayakan investasi, serta menganalisis kebijakan fiskal dan perbankan syariah maupun konvensional.',
     realityNote:
       'Banyak jalur profesional memerlukan ujian sertifikasi tambahan seperti CA/CPA (akuntan), ujian PAI (aktuaris), atau CFA (investasi).',
-    primaryMajors: ['akuntansi-keuangan', 'aktuaria', 'ilmu-ekonomi', 'ekonomi-syariah'],
+    primaryMajors: ['akuntansi-keuangan', 'keuangan-perbankan', 'aktuaria', 'ilmu-ekonomi', 'ekonomi-syariah'],
     alternativeMajors: ['matematika-murni', 'manajemen-bisnis'],
     keyRoots: ['ekonomi', 'matematika', 'logika'],
     searchKeywords: ['akuntan', 'auditor', 'pajak', 'aktuaris', 'bank', 'saham', 'syariah', 'ekonom']
@@ -261,8 +261,8 @@ export const CAREER_TRACKS: CareerTrack[] = [
       'Menyusun strategi pertumbuhan usaha, mengelola pemasaran, operasional hotel dan destinasi wisata, penyelenggaraan acara, hingga membangun usaha mandiri.',
     realityNote:
       'Pengalaman organisasi, magang proyek bisnis nyata, dan penguasaan satu keahlian spesifik (misalnya analitik pemasaran atau operasi) sangat membedakan lulusan.',
-    primaryMajors: ['manajemen-bisnis', 'pariwisata-perhotelan', 'agribisnis'],
-    alternativeMajors: ['komunikasi-media', 'ekonomi-syariah', 'sistem-informasi'],
+    primaryMajors: ['manajemen-bisnis', 'kewirausahaan', 'administrasi-bisnis', 'bisnis-digital', 'pariwisata-perhotelan'],
+    alternativeMajors: ['agribisnis', 'bisnis-internasional-logistik', 'komunikasi-media', 'ekonomi-syariah'],
     keyRoots: ['ekonomi', 'sosiologi', 'bahasa'],
     searchKeywords: ['bisnis', 'marketing', 'wirausaha', 'hotel', 'pariwisata', 'event', 'manajer']
   },

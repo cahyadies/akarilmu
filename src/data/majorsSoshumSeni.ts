@@ -122,7 +122,7 @@ export const SOSHUM_SENI_MAJOR_NODES: KnowledgeNode[] = [
     searchKeywords: ['seni murni', 'kriya', 'fesyen', 'musik', 'tari', 'teater', 'isi']
   },
 
-  // Klaster Ekonomi & Bisnis (5)
+  // Klaster Ekonomi & Bisnis (10)
   {
     id: 'ilmu-ekonomi',
     title: 'Ilmu Ekonomi & Pembangunan',
@@ -159,20 +159,105 @@ export const SOSHUM_SENI_MAJOR_NODES: KnowledgeNode[] = [
   },
   {
     id: 'manajemen-bisnis',
-    title: 'Manajemen Bisnis & Kewirausahaan',
-    shortLabel: 'Manajemen Bisnis',
+    title: 'Manajemen',
+    shortLabel: 'Manajemen',
     layer: 'major',
     group: 'Soshum',
     cluster: 'Ekonomi & Bisnis',
     summary:
-      'Mengelola strategi perusahaan, pemasaran, operasional, sumber daya manusia, dan keuangan agar usaha maupun organisasi bertahan dan tumbuh.',
+      'Mengelola strategi perusahaan, pemasaran, operasional, sumber daya manusia, dan keuangan agar organisasi dapat bertahan serta bertumbuh.',
     howItConnects:
       'Ekonomi membantu membaca pasar dan margin usaha, Sosiologi memandu perilaku konsumen serta budaya tim, dan Bahasa mendukung negosiasi strategi.',
-    topics: ['Strategi bisnis dan manajemen pemasaran', 'Manajemen operasi dan keuangan perusahaan', 'Perilaku organisasi dan pengelolaan SDM', 'Kewirausahaan dan pengembangan model bisnis'],
-    outcomes: ['Manajer pemasaran, operasional, atau pengembangan bisnis', 'Konsultan manajemen dan analis bisnis', 'Pendiri dan pengelola usaha mandiri'],
+    topics: ['Strategi korporasi dan manajemen pemasaran', 'Manajemen operasi dan keuangan perusahaan', 'Perilaku organisasi dan pengelolaan SDM', 'Pengambilan keputusan manajerial'],
+    outcomes: ['Manajer pemasaran, operasional, atau pengembangan bisnis', 'Konsultan manajemen dan analis bisnis', 'Management trainee di perusahaan multinasional'],
     smaTip:
-      'Karena cakupan Manajemen luas, kombinasikan dengan satu keterampilan konkret (misalnya analisis data, pemasaran digital, atau keuangan) sejak kuliah.',
-    searchKeywords: ['manajemen', 'bisnis', 'marketing', 'startup', 'sdm', 'feb']
+      'Karena cakupan Manajemen luas, kombinasikan dengan satu keterampilan konkret (misalnya analisis data, pemasaran, atau keuangan) sejak kuliah.',
+    searchKeywords: ['manajemen', 'bisnis', 'marketing', 'sdm', 'korporat', 'feb']
+  },
+  {
+    id: 'bisnis-digital',
+    title: 'Bisnis Digital',
+    shortLabel: 'Bisnis Digital',
+    layer: 'major',
+    group: 'Lintas Rumpun',
+    cluster: 'Ekonomi & Bisnis',
+    summary:
+      'Mengembangkan model bisnis berbasis platform digital, e-commerce, pemasaran berbasis data, analitik pelanggan, dan transformasi usaha menuju ekosistem daring.',
+    howItConnects:
+      'Mempertemukan Ekonomi bisnis dengan Statistika analitik pasar serta dasar Algoritma dan Sistem Informasi agar strategi digital dapat dieksekusi nyata.',
+    topics: ['Model bisnis platform dan e-commerce', 'Pemasaran digital dan analitik performa', 'Analisis data bisnis dan perilaku konsumen daring', 'Pengembangan produk digital dan fintech dasar'],
+    outcomes: ['Digital marketing dan growth strategist', 'E-commerce manager dan business analyst', 'Pengembang produk dan bisnis digital'],
+    smaTip:
+      'Berbeda dengan Informatika yang fokus membangun kode sistem dari nol, Bisnis Digital fokus pada strategi monetisasi, data pelanggan, dan pertumbuhan produk digital.',
+    searchKeywords: ['bisnis digital', 'ecommerce', 'digital marketing', 'startup', 'fintech', 'feb']
+  },
+  {
+    id: 'administrasi-bisnis',
+    title: 'Ilmu Administrasi Bisnis / Niaga',
+    shortLabel: 'Administrasi Bisnis',
+    layer: 'major',
+    group: 'Soshum',
+    cluster: 'Ekonomi & Bisnis',
+    summary:
+      'Mempelajari tata kelola operasional perusahaan, kebijakan niaga, hubungan industri, perpajakan usaha, serta pengelolaan fungsi bisnis dari hulu ke hilir.',
+    howItConnects:
+      'Ekonomi memberi dasar analisis pasar dan biaya, Sosiologi/Hukum membantu membaca regulasi usaha serta organisasi, dan Bahasa menopang komunikasi bisnis.',
+    topics: ['Tata kelola perusahaan dan administrasi niaga', 'Hukum bisnis, kepatuhan, dan perpajakan', 'Manajemen pemasaran, SDM, dan operasional', 'Analisis kelayakan usaha dan kemitraan'],
+    outcomes: ['Business operations dan corporate affairs specialist', 'Analis bisnis dan konsultan tata kelola perusahaan', 'Pengelola administrasi ekspor, pengadaan, atau kemitraan'],
+    smaTip:
+      'Sangat dekat dengan Manajemen; bedanya Administrasi Bisnis biasanya lebih banyak menyorot tata kelola organisasi, regulasi niaga, dan proses administrasi perusahaan secara menyeluruh.',
+    searchKeywords: ['administrasi bisnis', 'administrasi niaga', 'fia', 'bisnis', 'niaga', 'korporat']
+  },
+  {
+    id: 'keuangan-perbankan',
+    title: 'Keuangan & Perbankan',
+    shortLabel: 'Keuangan & Perbankan',
+    layer: 'major',
+    group: 'Soshum',
+    cluster: 'Ekonomi & Bisnis',
+    summary:
+      'Berfokus pada operasional bank, manajemen kredit, pasar modal, investasi, manajemen risiko likuiditas, serta layanan keuangan ritel dan korporasi.',
+    howItConnects:
+      'Ekonomi moneter dan akuntansi menjadi fondasi produk finansial, sedangkan Matematika keuangan dan Statistika dipakai menilai risiko kredit serta portofolio investasi.',
+    topics: ['Manajemen perbankan, kredit, dan treasury', 'Pasar modal, obligasi, dan manajemen portofolio', 'Analisis laporan keuangan dan valuasi aset', 'Regulasi OJK, kepatuhan, dan teknologi finansial'],
+    outcomes: ['Credit analyst dan relationship manager perbankan', 'Analis investasi dan pasar modal', 'Spesialis manajemen risiko dan treasury perusahaan'],
+    smaTip:
+      'Cocok jika kamu sudah tahu sejak awal ingin berkarya di bank, sekuritas, atau lembaga pembiayaan dan suka membaca angka kinerja bisnis.',
+    searchKeywords: ['perbankan', 'bank', 'keuangan', 'investasi', 'pasar modal', 'saham', 'ojk', 'feb']
+  },
+  {
+    id: 'kewirausahaan',
+    title: 'Kewirausahaan',
+    shortLabel: 'Kewirausahaan',
+    layer: 'major',
+    group: 'Lintas Rumpun',
+    cluster: 'Ekonomi & Bisnis',
+    summary:
+      'Melatih perancangan usaha baru dari validasi masalah pasar, pembuatan prototipe produk, model keuangan, pencarian pendanaan, hingga pengelolaan bisnis rintisan secara praktik.',
+    howItConnects:
+      'Ekonomi mengatur arus kas dan harga jual, Sosiologi membantu membaca kebutuhan pelanggan, dan Desain/Komunikasi mengasah cara membangun produk serta presentasi ke mitra.',
+    topics: ['Validasi pasar dan pengembangan model bisnis', 'Manajemen arus kas dan pendanaan usaha rintisan', 'Pengembangan produk, merek, dan penjualan', 'Etika bisnis, legalitas usaha, dan skala operasi'],
+    outcomes: ['Pendiri dan pengelola usaha mandiri (founder)', 'Venture builder dan pengembang bisnis baru di perusahaan', 'Konsultan pengembangan UMKM dan inkubator bisnis'],
+    smaTip:
+      'Sebagian besar kurikulum prodi Kewirausahaan menuntut kamu benar-benar membangun dan menguji bisnis nyata sejak masa kuliah, bukan sekadar belajar teori di kelas.',
+    searchKeywords: ['kewirausahaan', 'entrepreneur', 'founder', 'umkm', 'startup', 'sbm', 'feb']
+  },
+  {
+    id: 'bisnis-internasional-logistik',
+    title: 'Bisnis Internasional & Logistik',
+    shortLabel: 'Bisnis Intl. & Logistik',
+    layer: 'major',
+    group: 'Lintas Rumpun',
+    cluster: 'Ekonomi & Bisnis',
+    summary:
+      'Mempelajari perdagangan lintas negara, prosedur ekspor-impor, kepabeanan, manajemen rantai pasok global, transportasi kargo, serta strategi ekspansi perusahaan multinasional.',
+    howItConnects:
+      'Ekonomi perdagangan global berpadu dengan Manajemen Sistem logistik, Geografi jalur distribusi, serta Bahasa asing untuk negosiasi lintas negara.',
+    topics: ['Perdagangan internasional, ekspor-impor, dan kepabeanan', 'Manajemen rantai pasok global dan pergudangan', 'Transportasi kargo laut, udara, dan darat', 'Strategi masuk pasar luar negeri dan negosiasi lintas budaya'],
+    outcomes: ['Spesialis ekspor-impor dan kepabeanan', 'Global supply chain dan logistics coordinator', 'Business development perusahaan multinasional'],
+    smaTip:
+      'Pilihan menarik jika kamu menyukai Ekonomi, dunia internasional, dan alur distribusi barang, tetapi ingin fokus ke sisi bisnisnya dibanding diplomasi politik.',
+    searchKeywords: ['bisnis internasional', 'ekspor', 'impor', 'logistik', 'bea cukai', 'kargo', 'feb']
   },
   {
     id: 'ekonomi-syariah',

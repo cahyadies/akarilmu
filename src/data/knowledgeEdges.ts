@@ -224,7 +224,7 @@ export const KNOWLEDGE_EDGES: KnowledgeEdge[] = [
   { id: 'e-vis-seni', from: 'visual-ruang-estetika', to: 'seni-rupa-pertunjukan', strength: 'primary', reason: 'Penciptaan karya seni murni, kriya material, musik, tari, dan teater.' },
   { id: 'e-ling-seni', from: 'linguistik-media-budaya', to: 'seni-rupa-pertunjukan', strength: 'supporting', reason: 'Sejarah seni Nusantara, kritik estetika, dan kurasi budaya.' },
 
-  // Pillar -> Major: Ekonomi & Bisnis (5)
+  // Pillar -> Major: Ekonomi & Bisnis (10)
   { id: 'e-ekon-ie', from: 'ekonomi-keuangan', to: 'ilmu-ekonomi', strength: 'primary', reason: 'Teori mikro, makro, dan kebijakan ekonomi pembangunan.' },
   { id: 'e-stat-ie', from: 'statistika-peluang', to: 'ilmu-ekonomi', strength: 'primary', reason: 'Ekonometrika menguji dampak kebijakan memakai data empiris.' },
   { id: 'e-hkm-ie', from: 'hukum-tata-kelola', to: 'ilmu-ekonomi', strength: 'supporting', reason: 'Konteks kelembagaan fiskal dan regulasi publik.' },
@@ -235,6 +235,25 @@ export const KNOWLEDGE_EDGES: KnowledgeEdge[] = [
   { id: 'e-ekon-mnj', from: 'ekonomi-keuangan', to: 'manajemen-bisnis', strength: 'primary', reason: 'Struktur biaya, pemasaran, dan kelayakan keuangan usaha.' },
   { id: 'e-ind-mnj', from: 'manajemen-sistem-industri', to: 'manajemen-bisnis', strength: 'primary', reason: 'Manajemen operasi, strategi organisasi, dan pengelolaan SDM.' },
   { id: 'e-ling-mnj', from: 'linguistik-media-budaya', to: 'manajemen-bisnis', strength: 'supporting', reason: 'Komunikasi pemasaran, negosiasi, dan penyampaian strategi.' },
+
+  { id: 'e-ekon-bdig', from: 'ekonomi-keuangan', to: 'bisnis-digital', strength: 'primary', reason: 'Model bisnis platform, monetisasi, dan pemasaran digital.' },
+  { id: 'e-algo-bdig', from: 'algoritma-komputasi', to: 'bisnis-digital', strength: 'supporting', reason: 'Memahami produk digital, e-commerce, dan integrasi teknologi.' },
+  { id: 'e-stat-bdig', from: 'statistika-peluang', to: 'bisnis-digital', strength: 'primary', reason: 'Analitik performa kampanye, konversi, dan data pelanggan.' },
+
+  { id: 'e-ekon-adbis', from: 'ekonomi-keuangan', to: 'administrasi-bisnis', strength: 'primary', reason: 'Analisis usaha, perpajakan bisnis, dan operasional niaga.' },
+  { id: 'e-hkm-adbis', from: 'hukum-tata-kelola', to: 'administrasi-bisnis', strength: 'primary', reason: 'Tata kelola perusahaan, hukum niaga, dan kepatuhan regulasi.' },
+  { id: 'e-ind-adbis', from: 'manajemen-sistem-industri', to: 'administrasi-bisnis', strength: 'supporting', reason: 'Efisiensi alur proses dan administrasi operasional organisasi.' },
+
+  { id: 'e-ekon-bank', from: 'ekonomi-keuangan', to: 'keuangan-perbankan', strength: 'primary', reason: 'Operasional bank, analisis kredit, dan pasar modal.' },
+  { id: 'e-stat-bank', from: 'statistika-peluang', to: 'keuangan-perbankan', strength: 'primary', reason: 'Pemodelan risiko kredit, volatilitas aset, dan portofolio.' },
+
+  { id: 'e-ekon-kewira', from: 'ekonomi-keuangan', to: 'kewirausahaan', strength: 'primary', reason: 'Validasi model bisnis, arus kas, dan pendanaan usaha baru.' },
+  { id: 'e-psi-kewira', from: 'psikologi-pendidikan', to: 'kewirausahaan', strength: 'supporting', reason: 'Riset kebutuhan pelanggan dan kepemimpinan tim rintisan.' },
+  { id: 'e-vis-kewira', from: 'visual-ruang-estetika', to: 'kewirausahaan', strength: 'supporting', reason: 'Perancangan prototipe produk dan pengemasan identitas merek.' },
+
+  { id: 'e-ekon-log', from: 'ekonomi-keuangan', to: 'bisnis-internasional-logistik', strength: 'primary', reason: 'Perdagangan lintas negara, tarif ekspor-impor, dan strategi global.' },
+  { id: 'e-ind-log', from: 'manajemen-sistem-industri', to: 'bisnis-internasional-logistik', strength: 'primary', reason: 'Manajemen rantai pasok global, pergudangan, dan distribusi kargo.' },
+  { id: 'e-bumi-log', from: 'kebumian-geospasial', to: 'bisnis-internasional-logistik', strength: 'supporting', reason: 'Pemetaan jalur transportasi, pelabuhan, dan jaringan wilayah.' },
 
   { id: 'e-ekon-syar', from: 'ekonomi-keuangan', to: 'ekonomi-syariah', strength: 'primary', reason: 'Analisis perbankan, pasar modal, dan keuangan berbasis syariah.' },
   { id: 'e-hkm-syar', from: 'hukum-tata-kelola', to: 'ekonomi-syariah', strength: 'primary', reason: 'Kaidah akad muamalah, tata kelola zakat-wakaf, dan regulasi halal.' },

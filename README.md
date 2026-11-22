@@ -26,7 +26,7 @@ Peta referensi keilmuan interaktif bergaya buku sketsa untuk pelajar SMA/K atau 
 
 ## Fitur Utama
 
-- **Peta Cabang Keilmuan (`#peta`)**: Menelusuri hubungan 10 ilmu dasar (Matematika, Fisika, Kimia, Biologi, Geografi, Ekonomi, Sosiologi & Sejarah, Bahasa & Sastra, Logika & Filsafat, Seni & Estetika) ke 16 pilar kuliah dan 64 program studi lintas 9 klaster fakultas di Indonesia.
+- **Peta Cabang Keilmuan (`#peta`)**: Menelusuri hubungan 10 ilmu dasar (Matematika, Fisika, Kimia, Biologi, Geografi, Ekonomi, Sosiologi & Sejarah, Bahasa & Sastra, Logika & Filsafat, Seni & Estetika) ke 16 pilar kuliah dan 69 program studi lintas 9 klaster fakultas di Indonesia.
 - **Cek Persimpangan Ilmu (`#kombinasi`)**: Memilih 1 sampai 3 pelajaran favorit sekaligus untuk melihat jurusan apa saja yang mempertemukannya (misalnya Biologi + Kimia, Fisika + Matematika, atau Bahasa + Matematika).
 - **Arah Karier (`#karier`)**: Memetakan 24 jalur karier lintas 8 sektor kerja beserta aktivitas harian, prodi jalur utama maupun lintas prodi, ilmu dasar yang perlu disiapkan, dan catatan realitas lapangan (seperti syarat pendidikan profesi atau portofolio).
 - **Rincian Prodi, Rujukan PTN/PTS & Kalkulator Keketatan**: Setiap program studi dilengkapi topik inti, contoh PTN dan PTS rujukan di Indonesia, tautan ke portal resmi `snpmb.id`, serta kalkulator rasio keketatan (Daya Tampung dibanding Jumlah Peminat).

@@ -264,6 +264,31 @@ export const CAMPUS_REFERENCES: Record<string, CampusReference> = {
     pts: ['Universitas Prasetiya Mulya', 'BINUS University', 'Universitas Ciputra', 'Universitas Katolik Parahyangan (UNPAR)'],
     selectionNote: 'SBM ITB, FEB UI, dan FEB UGM memiliki rasio keketatan sangat tinggi di jalur SNBP maupun SNBT.'
   },
+  'bisnis-digital': {
+    ptn: ['Universitas Padjadjaran (UNPAD)', 'Universitas Sebelas Maret (UNS)', 'Universitas Pendidikan Indonesia (UPI)', 'Universitas Negeri Jakarta (UNJ)', 'Universitas Negeri Surabaya (UNESA)'],
+    pts: ['BINUS University', 'Universitas Prasetiya Mulya', 'Telkom University', 'Universitas Ciputra'],
+    selectionNote: 'Bisnis Digital termasuk salah satu prodi S1 dengan keketatan paling tinggi di SNBT karena kuota relatif kecil dan peminat yang melonjak cepat.'
+  },
+  'administrasi-bisnis': {
+    ptn: ['Universitas Indonesia (UI - FIA Ilmu Administrasi Niaga)', 'Universitas Brawijaya (UB - FIA)', 'Universitas Padjadjaran (UNPAD)', 'UNDIP', 'UPN Veteran Yogyakarta'],
+    pts: ['Telkom University', 'Universitas Katolik Parahyangan (UNPAR)', 'Unika Atma Jaya Jakarta', 'Universitas Trisakti'],
+    selectionNote: 'Di UI dan sebagian kampus, nama prodinya adalah Ilmu Administrasi Niaga, sedangkan di UB, UNPAD, dan UNDIP disebut Administrasi Bisnis.'
+  },
+  'keuangan-perbankan': {
+    ptn: ['Universitas Indonesia (Vokasi Administrasi Keuangan & Perbankan)', 'Universitas Brawijaya (Keuangan & Perbankan)', 'Universitas Airlangga (Vokasi Perbankan & Keuangan)', 'Politeknik Negeri Jakarta / Bandung'],
+    pts: ['Perbanas Institute', 'STIE Indonesia Banking School (IBS)', 'Universitas Prasetiya Mulya (Finance)', 'Universitas Trisakti'],
+    selectionNote: 'Banyak tersedia di jalur Vokasi (D3/D4) PTN maupun S1 khusus keuangan di kampus spesialis perbankan seperti Perbanas dan IBS.'
+  },
+  kewirausahaan: {
+    ptn: ['Institut Teknologi Bandung (ITB - SBM Kewirausahaan)', 'Universitas Brawijaya (UB)', 'Universitas Pendidikan Indonesia (UPI)', 'Universitas Negeri Makassar (UNM)'],
+    pts: ['Universitas Ciputra Surabaya', 'BINUS University (Business Creation)', 'Universitas Prasetiya Mulya', 'Universitas Agung Podomoro'],
+    selectionNote: 'SBM ITB memisahkan S1 Manajemen dan S1 Kewirausahaan; jalur Kewirausahaan berfokus kuat pada inkubasi dan praktik membangun bisnis nyata.'
+  },
+  'bisnis-internasional-logistik': {
+    ptn: ['Universitas Padjadjaran (UNPAD - Bisnis Internasional)', 'Universitas Indonesia (Vokasi Bisnis Kreatif / Logistik)', 'ITS (Manajemen Bisnis / Teknik Logistik)', 'Politeknik APP Jakarta (Kemenperin)'],
+    pts: ['Universitas Logistik dan Bisnis Internasional (ULBI)', 'Institut Transportasi dan Logistik (ITL) Trisakti', 'BINUS University (International Business)', 'Universitas Prasetiya Mulya'],
+    selectionNote: 'Selain PTN akademik, Politeknik APP (Kemenperin), ULBI, dan ITL Trisakti dikenal kuat di bidang manajemen logistik dan ekspor-impor.'
+  },
   'ekonomi-syariah': {
     ptn: ['IPB University', 'Universitas Indonesia (UI - Ilmu Ekonomi Islam)', 'Universitas Airlangga (UNAIR)', 'UNDIP', 'UIN Syarif Hidayatullah Jakarta', 'UIN Sunan Kalijaga'],
     pts: ['Institut Tazkia', 'Universitas Muhammadiyah Yogyakarta (UMY)', 'Universitas Islam Indonesia (UII)'],
