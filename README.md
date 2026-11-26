@@ -2,78 +2,98 @@
 
 **Kenali akarnya, lihat cabangnya.**
 
-Peta referensi keilmuan interaktif bergaya buku sketsa untuk pelajar SMA/K atau sederajat di Indonesia. Website ini membantu memperlihatkan bagaimana 10 ilmu dasar di sekolah saling terhubung menuju 16 pilar keilmuan kuliah, 60+ program studi di perguruan tinggi Indonesia, hingga arah profesi kerjanya.
+Peta referensi keilmuan interaktif bergaya buku sketsa untuk pelajar **SMA/K atau sederajat** di Indonesia. Website ini membantu memperlihatkan bagaimana **10 ilmu dasar** di bangku sekolah saling terhubung menuju **16 pilar keilmuan kuliah**, **60+ program studi (69 prodi lintas 9 rumpun)** di perguruan tinggi Indonesia, hingga **24 jalur karier** di dunia kerja.
 
-**Demo Langsung (Vercel):** [https://akarilmu.vercel.app](https://akarilmu.vercel.app)
+* **Website Langsung (Gratis, Tanpa Login):** [https://akarilmu.vercel.app](https://akarilmu.vercel.app)
+* **Panduan Pengguna Lengkap (Untuk Pelajar, Guru BK, & Orang Tua):** [Baca PANDUAN.md](./PANDUAN.md)
 
 ---
 
-## Pratinjau Tampilan
+## Mengapa AkarIlmu?
 
-### 1. Cek Kombinasi Pelajaran (Halaman Utama: Persimpangan 1 sampai 3 Ilmu Dasar)
+Banyak pelajar SMA/K atau sederajat bingung memilih jurusan kuliah karena pelajaran di sekolah (*Matematika, Fisika, Kimia, Biologi, Ekonomi, Bahasa, dll.*) terasa terpisah dari puluhan nama program studi di perguruan tinggi (*Aktuaria, Teknik Industri, Teknologi Pangan, Bisnis Digital, Planologi, dll.*).
+
+**AkarIlmu** menjawab kebingungan tersebut melalui **3 pintu eksplorasi** yang bisa dipilih sesuai kondisi masing-masing pelajar:
+
+1. **Berangkat dari Pelajaran Favorit di Sekolah (`#kombinasi` · Cek Kombinasi)**
+   Pilih 1 sampai 3 pelajaran dasar yang paling kamu sukai, lalu lihat daftar jurusan kuliah yang lahir dari pertemuan pelajaran-pelajaran tersebut beserta alasan keilmuannya.
+2. **Berangkat dari Pohon Cabang Ilmu (`#peta` · Peta Keilmuan 2 Mode)**
+   Lihat bagaimana 1 mata pelajaran sekolah bercabang ke pilar-pilar mata kuliah tahun pertama hingga ke program studi melalui mode **`Pohon Atas-Bawah`** (fokus bertahap tanpa garis bersilangan) atau **`Peta Kiri-Kanan`** (bagan 3 kolom menyeluruh).
+3. **Berangkat dari Cita-cita Profesi (`#karier` · Arah Karier)**
+   Mulai dari 24 jalur profesi di 8 sektor kerja, baca gambaran tugas harian dan catatan realitas lapangannya, lalu lacak balik program studi serta ilmu dasar yang perlu disiapkan.
+
+---
+
+## Pratinjau Visual & Cara Kerja
+
+### 1. Halaman Utama: Cek Kombinasi Pelajaran (`#kombinasi`)
+Pilih 1 sampai 3 pelajaran dasar SMA/K atau sederajat di panel kiri untuk menyaring program studi yang mempertemukan pelajaran tersebut, lengkap dengan label **`✓ Pilihanmu`**, **`Fondasi utama lain`**, dan **`Pendukung lain`**.
 
 ![Halaman Cek Kombinasi AkarIlmu](docs/screenshots/cek-kombinasi.png)
 
-### 2. Peta Keilmuan (Mode Pohon Atas-Bawah & Peta Kiri-Kanan: 10 Ilmu Dasar -> 16 Pilar -> 60+ Prodi)
+### 2. Peta Cabang Keilmuan: Pohon Atas-Bawah & Peta Kiri-Kanan (`#peta`)
+Telusuri alur **1. Akar Ilmu Dasar -> 2. Pilar Keilmuan Semester Awal -> 3. Cabang Program Studi** secara terstruktur dari atas ke bawah, atau beralih ke bagan 3 kolom kiri-ke-kanan.
 
 ![Halaman Peta Keilmuan AkarIlmu](docs/screenshots/peta-keilmuan.png)
 
-### 3. Arah Karier & Profesi Kerja (Telusur Balik dari 24 Jalur Profesi ke Prodi)
+### 3. Arah Karier & Profesi Kerja (`#karier`)
+Saring profesi berdasarkan 8 sektor kerja untuk melihat program studi jalur utama, jalur alternatif lintas bidang, ilmu dasar prasyarat, serta catatan realitas dunia kerja.
 
 ![Halaman Arah Karier AkarIlmu](docs/screenshots/arah-karier.png)
 
----
+### 4. Pop-up Rincian Prodi, Rujukan PTN/PTS & Kalkulator Keketatan Kursi
+Klik kotak program studi mana saja untuk membuka kartu pop-up *landscape* 2 kolom di tengah layar yang memuat penjelasan hubungan ilmu, topik inti kuliah, contoh kampus **PTN & PTS di Indonesia**, serta **Kalkulator Simulasi Keketatan Kursi (Daya Tampung vs Peminat)** untuk SNBP/SNBT.
 
-## Fitur Utama
-
-- **Cek Persimpangan Ilmu (`#kombinasi` · Halaman Utama)**: Pengunjung dapat langsung memilih 1 sampai 3 pelajaran favorit SMA/K atau sederajat untuk melihat program studi apa saja yang mempertemukannya (misalnya `Biologi + Kimia`, `Fisika + Matematika`, `Matematika + Ekonomi`, atau `Bahasa + Matematika`) lengkap dengan alasan keilmuannya.
-- **Peta Cabang Keilmuan 2 Mode (`#peta`)**:
-  - **Mode `Pohon Atas-Bawah`**: Menelusuri 1 akar ilmu dasar di atas, bercabang turun ke deretan pilar kuliah semester awal di tengah, lalu turun ke gugus program studi di bawahnya tanpa garis yang saling bersilangan.
-  - **Mode `Peta Kiri-Kanan`**: Bagan 3 kolom menyeluruh untuk melihat hubungan 10 ilmu dasar, 16 pilar keilmuan, dan 69 program studi lintas 9 rumpun keilmuan (termasuk rumpun Ekonomi & Bisnis).
-- **Arah Karier (`#karier`)**: Memetakan 24 jalur karier lintas 8 sektor kerja beserta aktivitas harian, prodi jalur utama maupun lintas bidang, ilmu dasar yang perlu disiapkan, dan catatan realitas lapangan.
-- **Pop-up Rincian Landscape, Rujukan PTN/PTS & Kalkulator Keketatan**: Klik kartu program studi mana saja untuk membuka pop-up kartu *landscape* 2 kolom di tengah layar (otomatis menyesuaikan menjadi 1 kolom di layar ponsel) yang memuat topik inti kuliah, contoh PTN dan PTS rujukan di Indonesia, tautan ke `snpmb.id`, serta kalkulator simulasi rasio keketatan kursi (Daya Tampung dibanding Jumlah Peminat).
-- **Catatan Belajar Lokal**: Menandai status bidang (`Tertarik`, `Sedang dipelajari`, `Sudah paham dasar`) yang tersimpan langsung di `localStorage` browser tanpa perlu akun.
-- **Mode Terang & Gelap + Responsif Ponsel**: Tema kertas sketsa krem (*Warm Sketchbook*) dan mode gelap (*Midnight Sketchbook*), dilengkapi bilah navigasi bawah khusus layar ponsel.
-- **Formulir Masukan & Apresiasi**: Pop-up pengiriman koreksi data atau pesan semangat melalui endpoint `/api/feedback`.
+![Pop-up Rincian Prodi dan Kalkulator Keketatan AkarIlmu](docs/screenshots/rincian-prodi-popup.png)
 
 ---
 
-## Teknologi
+## Cakupan Data Keilmuan
 
-- React 19 + TypeScript + Vite 6
-- CSS custom design tokens (tema sketsa terang & gelap, tanpa framework CSS berat)
-- Ikon dan garis percabangan pohon SVG kustom dengan pengukuran koordinat DOM presisi
-- Vercel Serverless Function (`api/feedback.js`) + `@vercel/functions`
+* **10 Ilmu Dasar (SMA/K atau Sederajat)**:
+  Matematika, Fisika, Kimia, Biologi, Geografi, Ekonomi, Sosiologi & Sejarah, Bahasa & Sastra, Logika & Filsafat, Seni & Estetika.
+* **16 Pilar Keilmuan Semester Awal**:
+  Kalkulus & Aljabar, Statistika & Peluang, Algoritma & Komputasi, Mekanika & Termo, Elektronika & Sinyal, Kimia & Material, Biokimia & Sel, Anatomi & Kesehatan, Ekologi & Hayati, Kebumian & Spasial, Ekonomi & Keuangan, Sistem & Industri, Masyarakat & Budaya, Hukum & Kebijakan, Bahasa & Komunikasi, Desain & Estetika.
+* **69 Program Studi Lintas 9 Rumpun Keilmuan**:
+  1. Kesehatan
+  2. MIPA & Kebumian
+  3. Teknik & Rekayasa
+  4. Komputasi & Data
+  5. Pertanian & Kelautan
+  6. Arsitektur & Seni
+  7. Ekonomi & Bisnis (Manajemen, Akuntansi, Ilmu Ekonomi, Bisnis Digital, Keuangan & Perbankan, Ekonomi Syariah, Kewirausahaan, Perpajakan, Logistik, Administrasi Bisnis)
+  8. Hukum & Sosial
+  9. Bahasa & Pendidikan
+* **24 Jalur Karier Lintas 8 Sektor Kerja**:
+  Kesehatan & Klinis, Teknologi & Data, Rekayasa & Energi, Pangan/Alam & Maritim, Kreatif/Desain & Media, Keuangan & Bisnis, Hukum & Kebijakan, serta Pendidikan/Riset & Sosial.
 
 ---
 
-## Menjalankan Secara Lokal
+## Dokumentasi Teknis (Bagi Pengembang)
+
+### Teknologi yang Digunakan
+* React 19 + TypeScript + Vite 6
+* CSS Custom Design Tokens (tema sketsa terang *Warm Sketchbook* & mode gelap *Midnight Sketchbook* satu tone warna tenang, tanpa ketergantungan framework CSS eksternal)
+* Visualisasi garis pohon SVG kustom dengan pengukuran koordinat DOM presisi
+* Vercel Serverless Function (`api/feedback.js`) + `@vercel/functions`
+
+### Menjalankan Secara Lokal
 
 ```bash
 npm install
 npm run dev
 ```
 
-Untuk membangun bundel produksi:
+Membangun bundel produksi:
 
 ```bash
 npm run build
 ```
 
-### Variabel Lingkungan Opsional (Pengiriman Email `/api/feedback`)
-
-Jika ingin mengirim email masukan langsung dari server Vercel via Resend atau Web3Forms, atur variabel berikut di Project Settings Vercel:
-
-- `FEEDBACK_TO_EMAIL` (default: `mentayasandbox@gmail.com`)
-- `RESEND_API_KEY` (opsional, untuk pengiriman via Resend)
-- `WEB3FORMS_ACCESS_KEY` (opsional, untuk pengiriman via Web3Forms)
-
-Jika keduanya tidak diatur, formulir otomatis menggunakan penerusan AJAX melalui browser.
-
 ---
 
 ## Disclaimer & Kredit
 
-**Disclaimer:** Website ini dibuat dengan bantuan AI berdasarkan referensi umum program studi di Indonesia dan hanya berfungsi sebagai gambaran awal (bukan acuan resmi kampus atau panitia seleksi). Menemukan kekeliruan atau punya masukan? Silakan kirim DM atau coret-coret di kolom komentar, ya!
+**Disclaimer:** Website ini dibuat dengan bantuan AI berdasarkan referensi umum program studi di Indonesia dan hanya berfungsi sebagai gambaran awal (bukan acuan resmi kampus atau panitia seleksi). Selalu verifikasi informasi resmi melalui portal [SNPMB](https://snpmb.id/), [PDDikti](https://pddikti.kemdiktisaintek.go.id/), dan situs perguruan tinggi tujuan. Menemukan kekeliruan atau punya masukan? Silakan kirim melalui tombol **Kirim Masukan / Apresiasi** di dalam aplikasi.
 
 Eksperimen terbuka oleh [MentayaSandbox](https://mentayasandbox.vercel.app/).
