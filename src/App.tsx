@@ -16,11 +16,16 @@ import { GuideModal } from './components/GuideModal';
 import { NodeDetailDrawer } from './components/NodeDetailDrawer';
 import { RoadmapCanvas } from './components/RoadmapCanvas';
 import { SavedNotesDrawer } from './components/SavedNotesDrawer';
+import {
+  MapLayoutMode,
+  MapModeSwitcher,
+  VerticalTreeCanvas
+} from './components/VerticalTreeCanvas';
 import { KNOWLEDGE_EDGES, KNOWLEDGE_NODES } from './data/knowledgeGraph';
 import { ProdiCluster, SavedNoteMap, SavedStatus } from './types/knowledge';
 
 type ThemeMode = 'light' | 'dark';
-type ActivePage = 'peta' | 'kombinasi' | 'karier';
+type ActivePage = 'kombinasi' | 'peta' | 'karier';
 
 const STORAGE_NOTES_KEY = 'akarilmu-saved-notes';
 const STORAGE_THEME_KEY = 'akarilmu-theme';
@@ -37,10 +42,10 @@ function loadInitialTheme(): ThemeMode {
 
 function loadInitialPage(): ActivePage {
   if (typeof window !== 'undefined') {
-    if (window.location.hash === '#kombinasi') return 'kombinasi';
+    if (window.location.hash === '#peta') return 'peta';
     if (window.location.hash === '#karier') return 'karier';
   }
-  return 'peta';
+  return 'kombinasi';
 }
 
 function loadInitialNotes(): { notes: SavedNoteMap; loadError: string | null } {
@@ -60,6 +65,10 @@ function loadInitialNotes(): { notes: SavedNoteMap; loadError: string | null } {
 export function App() {
   const [theme, setTheme] = useState<ThemeMode>(loadInitialTheme);
   const [activePage, setActivePage] = useState<ActivePage>(loadInitialPage);
+  const [mapLayoutMode, setMapLayoutMode] = useState<MapLayoutMode>('tree-focused');
+  const [selectedTreeRootId, setSelectedTreeRootId] = useState<string>('matematika');
+  const [selectedTreePillarId, setSelectedTreePillarId] = useState<string | null>(null);
+
   const [guideModalOpen, setGuideModalOpen] = useState(false);
   const [feedbackModal, setFeedbackModal] = useState<{
     isOpen: boolean;
@@ -114,18 +123,44 @@ export function App() {
     }
   }, []);
 
+  const syncTreeSelectionForNode = useCallback((nodeId: string) => {
+    const target = KNOWLEDGE_NODES.find((n) => n.id === nodeId);
+    if (!target) return;
+    if (target.layer === 'root') {
+      setSelectedTreeRootId(target.id);
+      setSelectedTreePillarId(null);
+    } else if (target.layer === 'pillar') {
+      const rEdge =
+        KNOWLEDGE_EDGES.find((e) => e.to === target.id && e.strength === 'primary') ??
+        KNOWLEDGE_EDGES.find((e) => e.to === target.id);
+      if (rEdge) setSelectedTreeRootId(rEdge.from);
+      setSelectedTreePillarId(target.id);
+    } else {
+      const pEdge =
+        KNOWLEDGE_EDGES.find((e) => e.to === target.id && e.strength === 'primary') ??
+        KNOWLEDGE_EDGES.find((e) => e.to === target.id);
+      if (pEdge) {
+        const rEdge =
+          KNOWLEDGE_EDGES.find((e) => e.to === pEdge.from && e.strength === 'primary') ??
+          KNOWLEDGE_EDGES.find((e) => e.to === pEdge.from);
+        if (rEdge) setSelectedTreeRootId(rEdge.from);
+        setSelectedTreePillarId(pEdge.from);
+      }
+    }
+  }, []);
+
   const syncFromHash = useCallback(() => {
     const hash = window.location.hash;
-    if (hash === '#kombinasi') {
-      setActivePage('kombinasi');
+    if (hash === '#peta') {
+      setActivePage('peta');
       return;
     }
     if (hash === '#karier') {
       setActivePage('karier');
       return;
     }
-    if (hash === '#peta' || hash === '#atas' || hash === '') {
-      setActivePage('peta');
+    if (hash === '#kombinasi' || hash === '#atas' || hash === '') {
+      setActivePage('kombinasi');
       return;
     }
     if (!hash.startsWith('#node=')) return;
@@ -134,7 +169,7 @@ export function App() {
     const found = KNOWLEDGE_NODES.find((n) => n.id === targetId);
     if (found) {
       setSystemNotice(null);
-      setActivePage('peta');
+      syncTreeSelectionForNode(found.id);
       setFocusedNodeId(found.id);
       setDetailNodeId(found.id);
     } else if (targetId) {
@@ -142,7 +177,7 @@ export function App() {
         `Bidang dengan tautan "${targetId}" tidak ditemukan di peta ini. Kamu tetap bisa mencarinya lewat kolom pencarian.`
       );
     }
-  }, []);
+  }, [syncTreeSelectionForNode]);
 
   useEffect(() => {
     syncFromHash();
@@ -206,21 +241,22 @@ export function App() {
     });
   }, []);
 
-  const handleHighlightOnMap = useCallback((nodeId: string) => {
-    setActiveRootFilter(null);
-    setActiveCluster(null);
-    setSearchQuery('');
-    setFocusedNodeId(nodeId);
-    setActivePage('peta');
-    window.history.replaceState(null, '', `${window.location.pathname}#peta`);
+  const handleHighlightOnMap = useCallback(
+    (nodeId: string) => {
+      syncTreeSelectionForNode(nodeId);
+      setActiveRootFilter(null);
+      setActiveCluster(null);
+      setSearchQuery('');
+      setFocusedNodeId(nodeId);
+      setActivePage('peta');
+      window.history.replaceState(null, '', `${window.location.pathname}#peta`);
 
-    window.requestAnimationFrame(() => {
-      const mapSection = document.getElementById('peta');
-      if (mapSection) {
-        mapSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  }, []);
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    },
+    [syncTreeSelectionForNode]
+  );
 
   const handleSetStatus = useCallback((nodeId: string, status: SavedStatus | null) => {
     setSavedNotes((prev) => {
@@ -255,14 +291,14 @@ export function App() {
       <header className="site-header">
         <div className="container header-inner">
           <a
-            href="#peta"
+            href="#kombinasi"
             className="brand-link"
             onClick={(e) => {
               e.preventDefault();
               setFocusedNodeId(null);
               setActiveRootFilter(null);
               setActiveCluster(null);
-              navigateToPage('peta', true);
+              navigateToPage('kombinasi', true);
             }}
           >
             <RootMarkIcon size={28} />
@@ -270,17 +306,6 @@ export function App() {
           </a>
 
           <nav className="desktop-nav" aria-label="Navigasi utama">
-            <a
-              href="#peta"
-              className="nav-link"
-              aria-current={activePage === 'peta' ? 'page' : undefined}
-              onClick={(e) => {
-                e.preventDefault();
-                navigateToPage('peta', true);
-              }}
-            >
-              Peta Keilmuan
-            </a>
             <a
               href="#kombinasi"
               className="nav-link"
@@ -291,6 +316,17 @@ export function App() {
               }}
             >
               Cek Kombinasi
+            </a>
+            <a
+              href="#peta"
+              className="nav-link"
+              aria-current={activePage === 'peta' ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToPage('peta', true);
+              }}
+            >
+              Peta Keilmuan
             </a>
             <a
               href="#karier"
@@ -368,8 +404,8 @@ export function App() {
           </div>
         )}
 
-        {activePage === 'peta' ? (
-          <>
+        {activePage === 'kombinasi' ? (
+          <div className="v2-landing-combo">
             <section className="intro-section" aria-labelledby="hero-heading">
               <div className="container intro-grid">
                 <div>
@@ -382,21 +418,21 @@ export function App() {
                     , ke mana saja kamu bisa melangkah?
                   </h1>
                   <p className="intro-lead">
-                    Banyak pelajar SMA/K atau sederajat bingung memilih jurusan kuliah karena pelajaran sekolah terasa terpisah-pisah. Peta sketsa ini menghubungkan 10 ilmu dasar ke 60+ program studi yang umum ada di perguruan tinggi Indonesia sebagai gambaran awal.
+                    Banyak pelajar SMA/K atau sederajat bingung memilih jurusan kuliah karena pelajaran sekolah terasa terpisah-pisah. Pilih 1 sampai 3 pelajaran favoritmu di bawah untuk langsung melihat 60+ program studi di Indonesia yang mempertemukannya.
                   </p>
                   <div className="intro-actions">
-                    <a href="#peta" className="sketch-btn sketch-btn--primary">
-                      Telusuri Peta 60+ Prodi
+                    <a href="#kombinasi" className="sketch-btn sketch-btn--primary">
+                      Cek Kombinasi Pelajaran
                     </a>
                     <a
-                      href="#kombinasi"
+                      href="#peta"
                       className="sketch-btn"
                       onClick={(e) => {
                         e.preventDefault();
-                        navigateToPage('kombinasi', true);
+                        navigateToPage('peta', true);
                       }}
                     >
-                      Cek Kombinasi Pelajaran
+                      Lihat Peta Pohon Keilmuan
                     </a>
                     <button
                       type="button"
@@ -446,7 +482,6 @@ export function App() {
                         d="M2 28 C 18 32, 24 56, 42 56"
                         stroke="var(--ink-blue)"
                         strokeWidth="2.1"
-                        strokeLinecap="round"
                       />
                       <path
                         d="M2 84 C 18 80, 24 22, 42 22"
@@ -509,28 +544,61 @@ export function App() {
               </div>
             </section>
 
-            <RoadmapCanvas
+            <ComboWorkbench
               nodes={KNOWLEDGE_NODES}
               edges={KNOWLEDGE_EDGES}
-              activeRootFilter={activeRootFilter}
-              onSelectRootFilter={setActiveRootFilter}
-              activeCluster={activeCluster}
-              onSelectCluster={setActiveCluster}
-              focusedNodeId={focusedNodeId}
-              onFocusNode={setFocusedNodeId}
+              onInspectMajor={openDetailForNode}
+              onHighlightOnMap={handleHighlightOnMap}
+            />
+          </div>
+        ) : activePage === 'peta' ? (
+          mapLayoutMode === 'horizontal-columns' ? (
+            <div className="legacy-map-wrap">
+              <div className="container" style={{ paddingTop: '2.2rem', marginBottom: '-1.5rem' }}>
+                <div className="vtree-header-bar">
+                  <div>
+                    <h2 className="section-title">
+                      Peta Cabang Keilmuan (60+ Prodi di Indonesia)
+                    </h2>
+                    <p className="section-subtitle">
+                      Saring dari kiri lewat ilmu dasar SMA/K atau sederajat, dari klaster fakultas, atau klik langsung kotak prodi untuk menelusuri seluruh jalur fondasinya.
+                    </p>
+                  </div>
+                  <MapModeSwitcher
+                    layoutMode={mapLayoutMode}
+                    onChangeLayoutMode={setMapLayoutMode}
+                  />
+                </div>
+              </div>
+              <RoadmapCanvas
+                nodes={KNOWLEDGE_NODES}
+                edges={KNOWLEDGE_EDGES}
+                activeRootFilter={activeRootFilter}
+                onSelectRootFilter={setActiveRootFilter}
+                activeCluster={activeCluster}
+                onSelectCluster={setActiveCluster}
+                focusedNodeId={focusedNodeId}
+                onFocusNode={setFocusedNodeId}
+                onOpenDetail={openDetailForNode}
+                searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
+                savedNotes={savedNotes}
+              />
+            </div>
+          ) : (
+            <VerticalTreeCanvas
+              nodes={KNOWLEDGE_NODES}
+              edges={KNOWLEDGE_EDGES}
+              selectedRootId={selectedTreeRootId}
+              onSelectRoot={setSelectedTreeRootId}
+              selectedPillarId={selectedTreePillarId}
+              onSelectPillar={setSelectedTreePillarId}
+              layoutMode={mapLayoutMode}
+              onChangeLayoutMode={setMapLayoutMode}
               onOpenDetail={openDetailForNode}
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
               savedNotes={savedNotes}
             />
-          </>
-        ) : activePage === 'kombinasi' ? (
-          <ComboWorkbench
-            nodes={KNOWLEDGE_NODES}
-            edges={KNOWLEDGE_EDGES}
-            onInspectMajor={openDetailForNode}
-            onHighlightOnMap={handleHighlightOnMap}
-          />
+          )
         ) : (
           <CareerExplorer
             key={careerSearchSeed}
@@ -601,18 +669,6 @@ export function App() {
 
       <nav className="mobile-bottom-nav" aria-label="Navigasi utama ponsel">
         <a
-          href="#peta"
-          className="mobile-bottom-item"
-          aria-current={activePage === 'peta' ? 'page' : undefined}
-          onClick={(e) => {
-            e.preventDefault();
-            navigateToPage('peta', true);
-          }}
-        >
-          <RootMarkIcon size={20} />
-          <span>Peta</span>
-        </a>
-        <a
           href="#kombinasi"
           className="mobile-bottom-item"
           aria-current={activePage === 'kombinasi' ? 'page' : undefined}
@@ -623,6 +679,18 @@ export function App() {
         >
           <ComboSketchIcon size={20} />
           <span>Kombinasi</span>
+        </a>
+        <a
+          href="#peta"
+          className="mobile-bottom-item"
+          aria-current={activePage === 'peta' ? 'page' : undefined}
+          onClick={(e) => {
+            e.preventDefault();
+            navigateToPage('peta', true);
+          }}
+        >
+          <RootMarkIcon size={20} />
+          <span>Peta</span>
         </a>
         <a
           href="#karier"
@@ -670,6 +738,7 @@ export function App() {
         savedStatus={detailNode ? savedNotes[detailNode.id] : undefined}
         onSetStatus={handleSetStatus}
         onJumpToNode={(id) => {
+          syncTreeSelectionForNode(id);
           setFocusedNodeId(id);
           setDetailNodeId(id);
         }}

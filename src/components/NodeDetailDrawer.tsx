@@ -96,7 +96,7 @@ export const NodeDetailDrawer: React.FC<NodeDetailDrawerProps> = ({
 
   return (
     <div
-      className="drawer-backdrop"
+      className="popup-detail-backdrop"
       role="dialog"
       aria-modal="true"
       aria-labelledby="drawer-node-title"
@@ -104,15 +104,18 @@ export const NodeDetailDrawer: React.FC<NodeDetailDrawerProps> = ({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="drawer-panel">
-        <div className="drawer-header">
-          <div>
+      <div className="popup-detail-card">
+        <div className="popup-detail-header">
+          <div style={{ minWidth: 0 }}>
             <span className="drawer-layer-label">
               {LAYER_LABELS[node.layer]} ({node.group})
             </span>
             <h2 id="drawer-node-title" className="drawer-title">
               {node.title}
             </h2>
+            <p className="drawer-text" style={{ marginTop: '0.35rem' }}>
+              {node.summary}
+            </p>
           </div>
           <button
             ref={closeBtnRef}
@@ -125,171 +128,175 @@ export const NodeDetailDrawer: React.FC<NodeDetailDrawerProps> = ({
           </button>
         </div>
 
-        <div>
-          <p className="drawer-text">{node.summary}</p>
-        </div>
+        <div className="popup-detail-body">
+          {/* Kolom Kiri: Profil Keilmuan, Fondasi, Topik Inti, & Tips SMA/K */}
+          <div className="popup-detail-col">
+            <div className="drawer-callout">
+              <h3 className="drawer-section-title">Bagaimana ilmu ini terhubung</h3>
+              <p className="drawer-text">{node.howItConnects}</p>
+            </div>
 
-        <div className="drawer-callout">
-          <h3 className="drawer-section-title">Bagaimana ilmu ini terhubung</h3>
-          <p className="drawer-text">{node.howItConnects}</p>
-        </div>
+            {majorRoots.length > 0 && (
+              <div>
+                <h3 className="drawer-section-title">Ilmu dasar yang dibutuhkan</h3>
+                <div className="drawer-chip-list">
+                  {majorRoots.map((item) => (
+                    <button
+                      key={item.rootId}
+                      type="button"
+                      className={[
+                        'drawer-jump-btn',
+                        item.strength === 'supporting' ? 'drawer-jump-btn--supporting' : ''
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                      onClick={() => onJumpToNode(item.rootId)}
+                    >
+                      <span>{item.rootNode!.shortLabel}</span>
+                      <span>({item.strength === 'primary' ? 'Utama' : 'Pendukung'})</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
-        {majorRoots.length > 0 && (
-          <div>
-            <h3 className="drawer-section-title">Ilmu dasar yang dibutuhkan</h3>
-            <div className="drawer-chip-list">
-              {majorRoots.map((item) => (
-                <button
-                  key={item.rootId}
-                  type="button"
-                  className={[
-                    'drawer-jump-btn',
-                    item.strength === 'supporting' ? 'drawer-jump-btn--supporting' : ''
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  onClick={() => onJumpToNode(item.rootId)}
-                >
-                  <span>{item.rootNode!.shortLabel}</span>
-                  <span>({item.strength === 'primary' ? 'Utama' : 'Pendukung'})</span>
-                </button>
-              ))}
+            {upstream.length > 0 && (
+              <div>
+                <h3 className="drawer-section-title">
+                  {node.layer === 'major' ? 'Pilar keilmuan pengantar' : 'Berakar dari ilmu dasar'}
+                </h3>
+                <div className="drawer-chip-list">
+                  {upstream.map(({ node: upNode, edge }) => (
+                    <button
+                      key={edge.id}
+                      type="button"
+                      className={[
+                        'drawer-jump-btn',
+                        edge.strength === 'supporting' ? 'drawer-jump-btn--supporting' : ''
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                      onClick={() => onJumpToNode(upNode.id)}
+                    >
+                      {upNode.shortLabel} ({edge.strength === 'primary' ? 'Utama' : 'Pendukung'})
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {downstream.length > 0 && (
+              <div>
+                <h3 className="drawer-section-title">
+                  {node.layer === 'root'
+                    ? 'Bercabang ke pilar keilmuan'
+                    : 'Membuka akses ke program studi'}
+                </h3>
+                <div className="drawer-chip-list">
+                  {downstream.map(({ node: downNode, edge }) => (
+                    <button
+                      key={edge.id}
+                      type="button"
+                      className={[
+                        'drawer-jump-btn',
+                        edge.strength === 'supporting' ? 'drawer-jump-btn--supporting' : ''
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                      onClick={() => onJumpToNode(downNode.id)}
+                    >
+                      {downNode.shortLabel}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div>
+              <h3 className="drawer-section-title">Topik inti yang akan ditemui</h3>
+              <ul className="drawer-bullet-list">
+                {node.topics.map((topic) => (
+                  <li key={topic}>{topic}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="drawer-callout">
+              <h3 className="drawer-section-title">Catatan untuk pelajar SMA/K atau sederajat</h3>
+              <p className="drawer-text">{node.smaTip}</p>
             </div>
           </div>
-        )}
 
-        {upstream.length > 0 && (
-          <div>
-            <h3 className="drawer-section-title">
-              {node.layer === 'major' ? 'Pilar keilmuan pengantar' : 'Berakar dari ilmu dasar'}
-            </h3>
-            <div className="drawer-chip-list">
-              {upstream.map(({ node: upNode, edge }) => (
-                <button
-                  key={edge.id}
-                  type="button"
-                  className={[
-                    'drawer-jump-btn',
-                    edge.strength === 'supporting' ? 'drawer-jump-btn--supporting' : ''
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  onClick={() => onJumpToNode(upNode.id)}
-                >
-                  {upNode.shortLabel} ({edge.strength === 'primary' ? 'Utama' : 'Pendukung'})
-                </button>
-              ))}
+          {/* Kolom Kanan: Arah Kerja, Rujukan PTN/PTS & Keketatan, serta Catatan */}
+          <div className="popup-detail-col">
+            <div>
+              <h3 className="drawer-section-title">
+                {node.layer === 'major' ? 'Ringkasan arah kerja' : 'Arah yang terbuka dari sini'}
+              </h3>
+              <ul className="drawer-bullet-list">
+                {node.outcomes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              {node.layer === 'major' && (
+                <div className="drawer-career-link-row">
+                  <button
+                    type="button"
+                    className="sketch-btn sketch-btn--ghost"
+                    onClick={() => onExploreCareer(node.shortLabel)}
+                  >
+                    Lihat jalur karier lengkap untuk prodi ini
+                  </button>
+                </div>
+              )}
             </div>
-          </div>
-        )}
 
-        {downstream.length > 0 && (
-          <div>
-            <h3 className="drawer-section-title">
-              {node.layer === 'root'
-                ? 'Bercabang ke pilar keilmuan'
-                : 'Membuka akses ke program studi'}
-            </h3>
-            <div className="drawer-chip-list">
-              {downstream.map(({ node: downNode, edge }) => (
-                <button
-                  key={edge.id}
-                  type="button"
-                  className={[
-                    'drawer-jump-btn',
-                    edge.strength === 'supporting' ? 'drawer-jump-btn--supporting' : ''
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  onClick={() => onJumpToNode(downNode.id)}
-                >
-                  {downNode.shortLabel}
-                </button>
-              ))}
+            {node.layer === 'major' && CAMPUS_REFERENCES[node.id] && (
+              <AdmissionCalculator
+                nodeId={node.id}
+                majorTitle={node.title}
+                reference={CAMPUS_REFERENCES[node.id]}
+              />
+            )}
+
+            <div>
+              <h3 className="drawer-section-title">Simpan di catatan belajarmu</h3>
+              <div className="status-picker" role="group" aria-label="Status catatan untuk bidang ini">
+                {STATUS_OPTIONS.map((option) => {
+                  const isSelected = savedStatus === option.value;
+                  return (
+                    <button
+                      key={option.value}
+                      type="button"
+                      className="status-pill-btn"
+                      aria-pressed={isSelected}
+                      onClick={() => onSetStatus(node.id, isSelected ? null : option.value)}
+                    >
+                      {option.label}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        )}
 
-        <div>
-          <h3 className="drawer-section-title">Topik inti yang akan ditemui</h3>
-          <ul className="drawer-bullet-list">
-            {node.topics.map((topic) => (
-              <li key={topic}>{topic}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="drawer-section-title">
-            {node.layer === 'major' ? 'Ringkasan arah kerja' : 'Arah yang terbuka dari sini'}
-          </h3>
-          <ul className="drawer-bullet-list">
-            {node.outcomes.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          {node.layer === 'major' && (
-            <div className="drawer-career-link-row">
+            <div className="combo-card-actions">
+              <button type="button" className="sketch-btn" onClick={handleCopyLink}>
+                Salin tautan bidang ini
+              </button>
               <button
                 type="button"
                 className="sketch-btn sketch-btn--ghost"
-                onClick={() => onExploreCareer(node.shortLabel)}
+                onClick={() => onReportCorrection(node.title)}
               >
-                Lihat jalur karier lengkap untuk prodi ini
+                Kirim koreksi / masukan
               </button>
+              {copyFeedback && (
+                <span className="drawer-text" role="status" aria-live="polite">
+                  {copyFeedback}
+                </span>
+              )}
             </div>
-          )}
-        </div>
-
-        <div className="drawer-callout">
-          <h3 className="drawer-section-title">Catatan untuk pelajar SMA/K atau sederajat</h3>
-          <p className="drawer-text">{node.smaTip}</p>
-        </div>
-
-        {node.layer === 'major' && CAMPUS_REFERENCES[node.id] && (
-          <AdmissionCalculator
-            nodeId={node.id}
-            majorTitle={node.title}
-            reference={CAMPUS_REFERENCES[node.id]}
-          />
-        )}
-
-        <div>
-          <h3 className="drawer-section-title">Simpan di catatan belajarmu</h3>
-          <div className="status-picker" role="group" aria-label="Status catatan untuk bidang ini">
-            {STATUS_OPTIONS.map((option) => {
-              const isSelected = savedStatus === option.value;
-              return (
-                <button
-                  key={option.value}
-                  type="button"
-                  className="status-pill-btn"
-                  aria-pressed={isSelected}
-                  onClick={() => onSetStatus(node.id, isSelected ? null : option.value)}
-                >
-                  {option.label}
-                </button>
-              );
-            })}
           </div>
-        </div>
-
-        <div className="combo-card-actions">
-          <button type="button" className="sketch-btn" onClick={handleCopyLink}>
-            Salin tautan bidang ini
-          </button>
-          <button
-            type="button"
-            className="sketch-btn sketch-btn--ghost"
-            onClick={() => onReportCorrection(node.title)}
-          >
-            Kirim koreksi / masukan
-          </button>
-          {copyFeedback && (
-            <span className="drawer-text" role="status" aria-live="polite">
-              {copyFeedback}
-            </span>
-          )}
         </div>
       </div>
     </div>
