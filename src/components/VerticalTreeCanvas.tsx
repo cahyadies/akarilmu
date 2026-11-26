@@ -17,16 +17,30 @@ export const MapModeSwitcher: React.FC<MapModeSwitchProps> = ({
   <div className="vtree-mode-switch" role="group" aria-label="Pilih mode tampilan peta keilmuan">
     <button
       type="button"
-      className="cluster-chip"
+      className="sketch-btn"
       aria-pressed={layoutMode === 'tree-focused'}
+      style={{
+        minHeight: '40px',
+        padding: '0.4rem 0.95rem',
+        fontSize: '0.86rem',
+        background: layoutMode === 'tree-focused' ? 'var(--accent)' : 'var(--bg-card)',
+        color: layoutMode === 'tree-focused' ? 'var(--accent-on)' : 'var(--ink)'
+      }}
       onClick={() => onChangeLayoutMode('tree-focused')}
     >
       Pohon Atas-Bawah
     </button>
     <button
       type="button"
-      className="cluster-chip"
+      className="sketch-btn"
       aria-pressed={layoutMode === 'horizontal-columns'}
+      style={{
+        minHeight: '40px',
+        padding: '0.4rem 0.95rem',
+        fontSize: '0.86rem',
+        background: layoutMode === 'horizontal-columns' ? 'var(--accent)' : 'var(--bg-card)',
+        color: layoutMode === 'horizontal-columns' ? 'var(--accent-on)' : 'var(--ink)'
+      }}
       onClick={() => onChangeLayoutMode('horizontal-columns')}
     >
       Peta Kiri-Kanan
@@ -467,8 +481,8 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                   >
                     <path
                       d={`M ${bottomCoords.sourceX} 0 L ${bottomCoords.sourceX} 24 L ${bottomCoords.targetX} 24 L ${bottomCoords.targetX} 49`}
-                      stroke="var(--ink-blue)"
-                      strokeWidth={2.5}
+                      stroke="var(--accent)"
+                      strokeWidth={2.6}
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       fill="none"
@@ -476,8 +490,8 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                     <path
                       d={`M ${bottomCoords.targetX - 6} 44 L ${bottomCoords.targetX} 53 L ${bottomCoords.targetX + 6} 44`}
                       fill="none"
-                      stroke="var(--ink-blue)"
-                      strokeWidth={2.4}
+                      stroke="var(--accent)"
+                      strokeWidth={2.5}
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
@@ -493,7 +507,7 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                         margin: '0 0 0.2rem',
                         fontSize: '0.82rem',
                         fontWeight: 700,
-                        color: 'var(--ink-muted)'
+                        color: 'var(--accent)'
                       }}
                     >
                       3. CABANG PROGRAM STUDI DARI PILAR {effectivePillarEntry.node.shortLabel.toUpperCase()}
@@ -582,7 +596,7 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                           style={{
                             fontSize: '0.78rem',
                             fontWeight: 700,
-                            color: 'var(--ink-muted)',
+                            color: 'var(--accent)',
                             paddingTop: '0.4rem',
                             borderTop: '1px dashed var(--border-soft)'
                           }}

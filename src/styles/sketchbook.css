@@ -39,8 +39,8 @@
   --accent: #fab387;
   --accent-on: #1e1e2e;
   --blue-on: #1e1e2e;
-  --highlight-wash: #36374d;
-  --highlight-border: #b4befe;
+  --highlight-wash: #3b333a;
+  --highlight-border: #fab387;
   --shadow-ink: #11111b;
   --edge-idle: #585b70;
   --backdrop-scrim: rgba(17, 17, 27, 0.74);
@@ -1082,7 +1082,7 @@ section[id],
 .combo-group-label {
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--ink-blue);
+  color: var(--ink-green);
 }
 
 .combo-result-desc {
@@ -2210,9 +2210,9 @@ section[id],
 }
 
 .vtree-badge-strength--primary {
-  background: var(--bg-muted);
-  color: var(--ink);
-  border-color: var(--border-strong);
+  background: var(--ink-blue);
+  color: var(--blue-on);
+  border-color: var(--ink-blue);
 }
 
 .vtree-prodi-count {

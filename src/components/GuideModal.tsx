@@ -106,12 +106,7 @@ export const GuideModal: React.FC<GuideModalProps> = ({
         <div className="modal-footer-actions">
           <button
             type="button"
-            className="sketch-btn"
-            style={{
-              background: 'var(--highlight-wash)',
-              borderColor: 'var(--highlight-border)',
-              color: 'var(--ink)'
-            }}
+            className="sketch-btn sketch-btn--primary"
             onClick={() => {
               onGoToPage('kombinasi');
               onClose();
