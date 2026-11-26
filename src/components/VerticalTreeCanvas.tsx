@@ -481,7 +481,7 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                   >
                     <path
                       d={`M ${bottomCoords.sourceX} 0 L ${bottomCoords.sourceX} 24 L ${bottomCoords.targetX} 24 L ${bottomCoords.targetX} 49`}
-                      stroke="var(--accent)"
+                      stroke="var(--ink-blue)"
                       strokeWidth={2.6}
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -490,7 +490,7 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                     <path
                       d={`M ${bottomCoords.targetX - 6} 44 L ${bottomCoords.targetX} 53 L ${bottomCoords.targetX + 6} 44`}
                       fill="none"
-                      stroke="var(--accent)"
+                      stroke="var(--ink-blue)"
                       strokeWidth={2.5}
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -507,7 +507,7 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                         margin: '0 0 0.2rem',
                         fontSize: '0.82rem',
                         fontWeight: 700,
-                        color: 'var(--accent)'
+                        color: 'var(--ink-blue)'
                       }}
                     >
                       3. CABANG PROGRAM STUDI DARI PILAR {effectivePillarEntry.node.shortLabel.toUpperCase()}
@@ -595,13 +595,13 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                         <div
                           style={{
                             fontSize: '0.78rem',
-                            fontWeight: 700,
-                            color: 'var(--accent)',
+                            fontWeight: 600,
+                            color: 'var(--ink-muted)',
                             paddingTop: '0.4rem',
                             borderTop: '1px dashed var(--border-soft)'
                           }}
                         >
-                          Klik untuk rincian &amp; PTN/PTS -&gt;
+                          Klik untuk rincian
                         </div>
                       </button>
                     );
