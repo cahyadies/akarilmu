@@ -119,6 +119,8 @@ Di dalam pop-up rincian ini terdapat:
   Gunakan halaman **Cek Kombinasi** saat sesi konseling siswa untuk membantu siswa yang hanya tahu nilai rapor terbaiknya (misal kuat di *Matematika + Geografi* atau *Biologi + Ekonomi*), lalu tunjukkan **Pop-up Rincian Prodi** agar siswa memahami topik kuliah dan rasio persaingan kursinya.
 * **Untuk Orang Tua**:
   Gunakan halaman **Arah Karier** dan **Pop-up Rincian Prodi** untuk berdiskusi secara objektif bersama anak mengenai hubungan antara minat pelajaran mereka di sekolah, pilihan kampus PTN/PTS, dan prospek bidang kerjanya.
+* **Nyaman Dibaca Siang maupun Malam**:
+  Klik ikon **Bulan / Matahari** di pojok kanan atas untuk berganti antara **Mode Terang (*Warm Sketchbook*)** dan **Mode Gelap (*Catppuccin Mocha*)** yang dirancang lembut di mata, serta klik menu **Cara Membaca** kapan saja untuk membuka ringkasan panduan cepat berformat 2 kolom.
 
 ---
 

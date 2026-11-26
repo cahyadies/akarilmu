@@ -73,7 +73,7 @@ Klik kotak program studi mana saja untuk membuka kartu pop-up *landscape* 2 kolo
 
 ### Teknologi yang Digunakan
 * React 19 + TypeScript + Vite 6
-* CSS Custom Design Tokens (tema sketsa terang *Warm Sketchbook* & mode gelap *Midnight Sketchbook* satu tone warna tenang, tanpa ketergantungan framework CSS eksternal)
+* CSS Custom Design Tokens (tema terang *Warm Sketchbook* dan mode gelap 3-warna berbasis *Catppuccin Mocha*, tanpa ketergantungan framework CSS eksternal)
 * Visualisasi garis pohon SVG kustom dengan pengukuran koordinat DOM presisi
 * Vercel Serverless Function (`api/feedback.js`) + `@vercel/functions`
 
