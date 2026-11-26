@@ -10,15 +10,15 @@ Peta referensi keilmuan interaktif bergaya buku sketsa untuk pelajar SMA/K atau 
 
 ## Pratinjau Tampilan
 
-### 1. Peta Keilmuan (10 Ilmu Dasar -> 16 Pilar -> 60+ Prodi di Indonesia)
-
-![Halaman Peta Keilmuan AkarIlmu](docs/screenshots/peta-keilmuan.png)
-
-### 2. Cek Kombinasi Pelajaran (Persimpangan 1 sampai 3 Ilmu Dasar)
+### 1. Cek Kombinasi Pelajaran (Halaman Utama: Persimpangan 1 sampai 3 Ilmu Dasar)
 
 ![Halaman Cek Kombinasi AkarIlmu](docs/screenshots/cek-kombinasi.png)
 
-### 3. Arah Karier & Profesi Kerja (Telusur Balik dari Profesi ke Prodi)
+### 2. Peta Keilmuan (Mode Pohon Atas-Bawah & Peta Kiri-Kanan: 10 Ilmu Dasar -> 16 Pilar -> 60+ Prodi)
+
+![Halaman Peta Keilmuan AkarIlmu](docs/screenshots/peta-keilmuan.png)
+
+### 3. Arah Karier & Profesi Kerja (Telusur Balik dari 24 Jalur Profesi ke Prodi)
 
 ![Halaman Arah Karier AkarIlmu](docs/screenshots/arah-karier.png)
 
@@ -26,12 +26,14 @@ Peta referensi keilmuan interaktif bergaya buku sketsa untuk pelajar SMA/K atau 
 
 ## Fitur Utama
 
-- **Peta Cabang Keilmuan (`#peta`)**: Menelusuri hubungan 10 ilmu dasar (Matematika, Fisika, Kimia, Biologi, Geografi, Ekonomi, Sosiologi & Sejarah, Bahasa & Sastra, Logika & Filsafat, Seni & Estetika) ke 16 pilar kuliah dan 69 program studi lintas 9 klaster fakultas di Indonesia.
-- **Cek Persimpangan Ilmu (`#kombinasi`)**: Memilih 1 sampai 3 pelajaran favorit sekaligus untuk melihat jurusan apa saja yang mempertemukannya (misalnya Biologi + Kimia, Fisika + Matematika, atau Bahasa + Matematika).
-- **Arah Karier (`#karier`)**: Memetakan 24 jalur karier lintas 8 sektor kerja beserta aktivitas harian, prodi jalur utama maupun lintas prodi, ilmu dasar yang perlu disiapkan, dan catatan realitas lapangan (seperti syarat pendidikan profesi atau portofolio).
-- **Rincian Prodi, Rujukan PTN/PTS & Kalkulator Keketatan**: Setiap program studi dilengkapi topik inti, contoh PTN dan PTS rujukan di Indonesia, tautan ke portal resmi `snpmb.id`, serta kalkulator rasio keketatan (Daya Tampung dibanding Jumlah Peminat).
-- **Catatan Belajar Lokal**: Menandai status bidang (`Tertarik`, `Sedang dipelajari`, `Sudah paham dasar`) yang tersimpan langsung di `localStorage` tanpa perlu akun.
-- **Mode Terang & Gelap + Responsif Ponsel**: Tema kertas sketsa krem dan mode gelap *Midnight Sketchbook*, dilengkapi tab 3 lapis, filter lipat, dan bilah navigasi bawah khusus layar smartphone.
+- **Cek Persimpangan Ilmu (`#kombinasi` · Halaman Utama)**: Pengunjung dapat langsung memilih 1 sampai 3 pelajaran favorit SMA/K atau sederajat untuk melihat program studi apa saja yang mempertemukannya (misalnya `Biologi + Kimia`, `Fisika + Matematika`, `Matematika + Ekonomi`, atau `Bahasa + Matematika`) lengkap dengan alasan keilmuannya.
+- **Peta Cabang Keilmuan 2 Mode (`#peta`)**:
+  - **Mode `Pohon Atas-Bawah`**: Menelusuri 1 akar ilmu dasar di atas, bercabang turun ke deretan pilar kuliah semester awal di tengah, lalu turun ke gugus program studi di bawahnya tanpa garis yang saling bersilangan.
+  - **Mode `Peta Kiri-Kanan`**: Bagan 3 kolom menyeluruh untuk melihat hubungan 10 ilmu dasar, 16 pilar keilmuan, dan 69 program studi lintas 9 rumpun keilmuan (termasuk rumpun Ekonomi & Bisnis).
+- **Arah Karier (`#karier`)**: Memetakan 24 jalur karier lintas 8 sektor kerja beserta aktivitas harian, prodi jalur utama maupun lintas bidang, ilmu dasar yang perlu disiapkan, dan catatan realitas lapangan.
+- **Pop-up Rincian Landscape, Rujukan PTN/PTS & Kalkulator Keketatan**: Klik kartu program studi mana saja untuk membuka pop-up kartu *landscape* 2 kolom di tengah layar (otomatis menyesuaikan menjadi 1 kolom di layar ponsel) yang memuat topik inti kuliah, contoh PTN dan PTS rujukan di Indonesia, tautan ke `snpmb.id`, serta kalkulator simulasi rasio keketatan kursi (Daya Tampung dibanding Jumlah Peminat).
+- **Catatan Belajar Lokal**: Menandai status bidang (`Tertarik`, `Sedang dipelajari`, `Sudah paham dasar`) yang tersimpan langsung di `localStorage` browser tanpa perlu akun.
+- **Mode Terang & Gelap + Responsif Ponsel**: Tema kertas sketsa krem (*Warm Sketchbook*) dan mode gelap (*Midnight Sketchbook*), dilengkapi bilah navigasi bawah khusus layar ponsel.
 - **Formulir Masukan & Apresiasi**: Pop-up pengiriman koreksi data atau pesan semangat melalui endpoint `/api/feedback`.
 
 ---
@@ -40,7 +42,7 @@ Peta referensi keilmuan interaktif bergaya buku sketsa untuk pelajar SMA/K atau 
 
 - React 19 + TypeScript + Vite 6
 - CSS custom design tokens (tema sketsa terang & gelap, tanpa framework CSS berat)
-- Ikon dan garis kurva penghubung SVG kustom
+- Ikon dan garis percabangan pohon SVG kustom dengan pengukuran koordinat DOM presisi
 - Vercel Serverless Function (`api/feedback.js`) + `@vercel/functions`
 
 ---
