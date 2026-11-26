@@ -1,7 +1,7 @@
 import React, { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { KnowledgeEdge, KnowledgeNode, SavedNoteMap } from '../types/knowledge';
 import { getDirectDownstream, getMajorRootContributions, getNodeById } from '../utils/graphHelpers';
-import { RootSubjectIcon, SearchSketchIcon } from './DoodleIcons';
+import { CloseSketchIcon, RootSubjectIcon, SearchSketchIcon } from './DoodleIcons';
 
 export type MapLayoutMode = 'tree-focused' | 'horizontal-columns';
 
@@ -258,31 +258,38 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
         </div>
 
         <div className="vtree-shelf-card">
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '0.75rem'
-            }}
-          >
+          <div className="vtree-shelf-top">
             <div>
-              <strong style={{ fontSize: '0.96rem' }}>
+              <strong style={{ fontSize: '0.98rem' }}>
                 Pilih Akar Ilmu Dasar SMA/K atau Sederajat (10)
               </strong>
             </div>
 
-            <div className="search-input-wrap" style={{ minWidth: '270px', margin: 0 }}>
-              <SearchSketchIcon size={16} className="search-icon" />
-              <input
-                type="search"
-                className="search-input"
-                style={{ minHeight: '38px', padding: '0.35rem 0.75rem 0.35rem 2.1rem' }}
-                placeholder="Cari cepat prodi / topik (misal: mesin, akuntansi)..."
-                value={quickSearch}
-                onChange={(e) => setQuickSearch(e.target.value)}
-              />
+            <div className="vtree-search-box">
+              <div className="search-input-wrap">
+                <span className="search-icon-slot">
+                  <SearchSketchIcon size={17} />
+                </span>
+                <input
+                  type="search"
+                  className="sketch-input"
+                  style={{ minHeight: '40px', paddingTop: '0.4rem', paddingBottom: '0.4rem' }}
+                  placeholder="Cari prodi atau topik (misal: mesin, akuntansi)..."
+                  aria-label="Cari cepat program studi, pilar, atau ilmu dasar"
+                  value={quickSearch}
+                  onChange={(e) => setQuickSearch(e.target.value)}
+                />
+                {quickSearch && (
+                  <button
+                    type="button"
+                    className="search-clear-btn"
+                    onClick={() => setQuickSearch('')}
+                    aria-label="Bersihkan pencarian"
+                  >
+                    <CloseSketchIcon size={16} />
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
@@ -316,13 +323,11 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                     onSelectPillar(null);
                   }}
                 >
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}>
+                  <span className="vtree-root-pill-title">
                     <RootSubjectIcon rootId={r.id} size={16} />
                     <span>{r.shortLabel}</span>
                   </span>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--ink-muted)' }}>
-                    {pCount} pilar
-                  </span>
+                  <span className="vtree-root-pill-count">{pCount} pilar</span>
                 </button>
               );
             })}
