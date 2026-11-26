@@ -556,11 +556,11 @@ export function App() {
             <div className="legacy-map-wrap">
               <div className="container" style={{ paddingTop: '2.2rem', marginBottom: '-1.5rem' }}>
                 <div className="vtree-header-bar">
-                  <div>
-                    <h2 className="section-title">
+                  <div className="page-intro-header" style={{ marginBottom: 0 }}>
+                    <h1 className="intro-title">
                       Peta Cabang Keilmuan (60+ Prodi di Indonesia)
-                    </h2>
-                    <p className="section-subtitle">
+                    </h1>
+                    <p className="intro-lead">
                       Saring dari kiri lewat ilmu dasar SMA/K atau sederajat, dari klaster fakultas, atau klik langsung kotak prodi untuk menelusuri seluruh jalur fondasinya.
                     </p>
                   </div>

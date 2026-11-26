@@ -675,9 +675,10 @@ section[id],
 }
 
 .cluster-chip[aria-pressed='true'] {
-  background-color: var(--ink-green);
-  color: var(--blue-on);
-  border-color: var(--border-strong);
+  background-color: var(--highlight-wash);
+  color: var(--ink);
+  border-color: var(--highlight-border);
+  font-weight: 700;
   box-shadow: 2px 2px 0 var(--shadow-ink);
 }
 
@@ -703,9 +704,10 @@ section[id],
 }
 
 .root-chip[aria-pressed='true'] {
-  background-color: var(--ink-blue);
-  color: var(--blue-on);
-  border-color: var(--border-strong);
+  background-color: var(--highlight-wash);
+  color: var(--ink);
+  border-color: var(--highlight-border);
+  font-weight: 700;
   box-shadow: 2px 2px 0 var(--shadow-ink);
 }
 
@@ -1080,7 +1082,7 @@ section[id],
 .combo-group-label {
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--ink-green);
+  color: var(--ink-blue);
 }
 
 .combo-result-desc {
@@ -2208,9 +2210,9 @@ section[id],
 }
 
 .vtree-badge-strength--primary {
-  background: var(--ink-blue);
-  color: var(--blue-on);
-  border-color: var(--ink-blue);
+  background: var(--bg-muted);
+  color: var(--ink);
+  border-color: var(--border-strong);
 }
 
 .vtree-prodi-count {
@@ -2406,4 +2408,28 @@ section[id],
 
 .modal-card {
   animation: popupCardIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.modal-card--landscape {
+  width: min(1020px, 100%);
+  max-height: min(88dvh, 780px);
+}
+
+.guide-modal-body--landscape {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 1.35rem;
+  align-items: start;
+}
+
+@media (max-width: 780px) {
+  .modal-card--landscape {
+    width: 100%;
+    max-height: calc(100dvh - 1.5rem);
+  }
+
+  .guide-modal-body--landscape {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

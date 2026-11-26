@@ -39,7 +39,7 @@ export const GuideModal: React.FC<GuideModalProps> = ({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="modal-card">
+      <div className="modal-card modal-card--landscape">
         <div className="drawer-header">
           <div>
             <span className="drawer-layer-label">AkarIlmu: Kenali akarnya, lihat cabangnya.</span>
@@ -58,21 +58,21 @@ export const GuideModal: React.FC<GuideModalProps> = ({
           </button>
         </div>
 
-        <div className="guide-modal-body">
+        <div className="guide-modal-body guide-modal-body--landscape">
           <div className="guide-legend-box">
             <h3 className="drawer-section-title">Arti warna, garis, dan lapisan</h3>
             <ul className="guide-list">
               <li>
-                <strong>3 lapisan alur:</strong> kolom kiri adalah 10 ilmu dasar (SMA/K atau sederajat), kolom tengah adalah 16 pilar kuliah semester awal, dan kolom kanan adalah 60+ program studi yang umum ada di perguruan tinggi Indonesia.
+                <strong>3 lapisan alur:</strong> dimulai dari 10 ilmu dasar (SMA/K atau sederajat), bercabang ke 16 pilar kuliah semester awal, hingga menuju 60+ program studi yang umum ada di perguruan tinggi Indonesia.
               </li>
               <li>
-                <strong>Garis biru tegas:</strong> menandakan fondasi utama yang akan langsung sering dipakai sejak semester awal perkuliahan.
+                <strong>2 mode peta keilmuan:</strong> gunakan <em>Pohon Atas-Bawah</em> untuk menelusuri cabang fokus per pilar tanpa garis bersilangan, atau <em>Peta Kiri-Kanan</em> untuk melihat bagan 3 kolom secara menyeluruh.
               </li>
               <li>
-                <strong>Garis putus-putus:</strong> menandakan ilmu pendukung atau jembatan lintas disiplin yang memperkaya bidang tersebut.
+                <strong>Garis utuh vs putus-putus:</strong> garis utuh menandakan fondasi utama yang langsung dipakai sejak semester awal, sedangkan garis putus-putus menandakan ilmu pendukung lintas disiplin.
               </li>
               <li>
-                <strong>Klik kotak mana pun:</strong> panel rincian akan terbuka agar kamu bisa melompat mundur ke prasyaratnya, maju ke jurusan turunannya, atau menandai status catatan belajarmu.
+                <strong>Klik kotak mana pun:</strong> pop-up rincian akan terbuka di tengah layar lengkap dengan rujukan kampus PTN/PTS serta kalkulator simulasi keketatan kursi.
               </li>
             </ul>
           </div>
@@ -83,7 +83,7 @@ export const GuideModal: React.FC<GuideModalProps> = ({
               Peta ini disusun sebagai kompas pembuka wawasan agar pelajar SMA/K atau sederajat tidak memilih jurusan dalam keadaan gelap terhadap fondasi ilmunya. Kurikulum tiap kampus di Indonesia bisa memiliki penekanan berbeda, dan jalur lintas jurusan tetap terbuka lebar lewat belajar mandiri.
             </p>
             <p>
-              Kalau kamu sudah tahu 2 atau 3 pelajaran favorit di sekolah, coba pindah ke halaman <strong>Cek Kombinasi</strong> untuk melihat jurusan apa saja yang mempertemukan semuanya, atau buka <strong>Arah Karier</strong> untuk menelusuri balik dari profesi yang kamu minati.
+              Kalau kamu sudah tahu 2 atau 3 pelajaran favorit di sekolah, gunakan halaman <strong>Cek Kombinasi</strong> untuk melihat jurusan apa saja yang mempertemukan semuanya, atau buka <strong>Arah Karier</strong> untuk menelusuri balik dari profesi yang kamu minati.
             </p>
             <p className="guide-disclaimer-note">
               <strong>Disclaimer:</strong> Website ini dibuat dengan bantuan AI berdasarkan referensi umum program studi di Indonesia dan hanya berfungsi sebagai gambaran awal (bukan acuan resmi kampus atau panitia seleksi). Menemukan kekeliruan atau punya masukan? Silakan kirim DM atau coret-coret di kolom komentar, ya!
@@ -106,23 +106,28 @@ export const GuideModal: React.FC<GuideModalProps> = ({
         <div className="modal-footer-actions">
           <button
             type="button"
-            className="sketch-btn sketch-btn--primary"
-            onClick={() => {
-              onGoToPage('peta');
-              onClose();
-            }}
-          >
-            Buka Peta Keilmuan
-          </button>
-          <button
-            type="button"
             className="sketch-btn"
+            style={{
+              background: 'var(--highlight-wash)',
+              borderColor: 'var(--highlight-border)',
+              color: 'var(--ink)'
+            }}
             onClick={() => {
               onGoToPage('kombinasi');
               onClose();
             }}
           >
             Cek Kombinasi
+          </button>
+          <button
+            type="button"
+            className="sketch-btn"
+            onClick={() => {
+              onGoToPage('peta');
+              onClose();
+            }}
+          >
+            Buka Peta Keilmuan
           </button>
           <button
             type="button"

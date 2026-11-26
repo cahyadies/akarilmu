@@ -17,30 +17,16 @@ export const MapModeSwitcher: React.FC<MapModeSwitchProps> = ({
   <div className="vtree-mode-switch" role="group" aria-label="Pilih mode tampilan peta keilmuan">
     <button
       type="button"
-      className="sketch-btn"
+      className="cluster-chip"
       aria-pressed={layoutMode === 'tree-focused'}
-      style={{
-        minHeight: '40px',
-        padding: '0.4rem 0.95rem',
-        fontSize: '0.86rem',
-        background: layoutMode === 'tree-focused' ? 'var(--accent)' : 'var(--bg-card)',
-        color: layoutMode === 'tree-focused' ? 'var(--accent-on)' : 'var(--ink)'
-      }}
       onClick={() => onChangeLayoutMode('tree-focused')}
     >
       Pohon Atas-Bawah
     </button>
     <button
       type="button"
-      className="sketch-btn"
+      className="cluster-chip"
       aria-pressed={layoutMode === 'horizontal-columns'}
-      style={{
-        minHeight: '40px',
-        padding: '0.4rem 0.95rem',
-        fontSize: '0.86rem',
-        background: layoutMode === 'horizontal-columns' ? 'var(--accent)' : 'var(--bg-card)',
-        color: layoutMode === 'horizontal-columns' ? 'var(--accent-on)' : 'var(--ink)'
-      }}
       onClick={() => onChangeLayoutMode('horizontal-columns')}
     >
       Peta Kiri-Kanan
@@ -245,12 +231,12 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
     <section id="peta" className="section-block" aria-labelledby="vtree-heading">
       <div className="container">
         <div className="vtree-header-bar">
-          <div>
-            <h2 id="vtree-heading" className="section-title">
+          <div className="page-intro-header" style={{ marginBottom: 0 }}>
+            <h1 id="vtree-heading" className="intro-title">
               Peta Cabang Keilmuan (60+ Prodi di Indonesia)
-            </h2>
-            <p className="section-subtitle">
-              Pilih <strong>1 Ilmu Dasar</strong> di atas, lihat cabang <strong>Pilar Kuliah</strong> di tengah, lalu klik menuju <strong>Program Studi</strong> di bawahnya tanpa benang yang saling bersilangan.
+            </h1>
+            <p className="intro-lead">
+              Pilih 1 ilmu dasar di atas, lihat cabang pilar kuliah di tengah, lalu klik menuju program studi di bawahnya tanpa benang yang saling bersilangan.
             </p>
           </div>
 
@@ -481,8 +467,8 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                   >
                     <path
                       d={`M ${bottomCoords.sourceX} 0 L ${bottomCoords.sourceX} 24 L ${bottomCoords.targetX} 24 L ${bottomCoords.targetX} 49`}
-                      stroke="var(--accent)"
-                      strokeWidth={2.6}
+                      stroke="var(--ink-blue)"
+                      strokeWidth={2.5}
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       fill="none"
@@ -490,8 +476,8 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                     <path
                       d={`M ${bottomCoords.targetX - 6} 44 L ${bottomCoords.targetX} 53 L ${bottomCoords.targetX + 6} 44`}
                       fill="none"
-                      stroke="var(--accent)"
-                      strokeWidth={2.5}
+                      stroke="var(--ink-blue)"
+                      strokeWidth={2.4}
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
@@ -507,7 +493,7 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                         margin: '0 0 0.2rem',
                         fontSize: '0.82rem',
                         fontWeight: 700,
-                        color: 'var(--accent)'
+                        color: 'var(--ink-muted)'
                       }}
                     >
                       3. CABANG PROGRAM STUDI DARI PILAR {effectivePillarEntry.node.shortLabel.toUpperCase()}
@@ -596,7 +582,7 @@ export const VerticalTreeCanvas: React.FC<VerticalTreeProps> = ({
                           style={{
                             fontSize: '0.78rem',
                             fontWeight: 700,
-                            color: 'var(--accent)',
+                            color: 'var(--ink-muted)',
                             paddingTop: '0.4rem',
                             borderTop: '1px dashed var(--border-soft)'
                           }}
