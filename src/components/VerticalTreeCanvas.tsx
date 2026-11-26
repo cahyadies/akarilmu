@@ -28,7 +28,7 @@ export const MapModeSwitcher: React.FC<MapModeSwitchProps> = ({
       }}
       onClick={() => onChangeLayoutMode('tree-focused')}
     >
-      Pohon Atas-Bawah (Fokus per Pilar)
+      Pohon Atas-Bawah
     </button>
     <button
       type="button"
@@ -43,7 +43,7 @@ export const MapModeSwitcher: React.FC<MapModeSwitchProps> = ({
       }}
       onClick={() => onChangeLayoutMode('horizontal-columns')}
     >
-      Peta 3 Kolom Kiri-Kanan
+      Peta Kiri-Kanan
     </button>
   </div>
 );
